@@ -1,42 +1,42 @@
-const main = document.querySelector("main") // Bruker main for å legge til elementene i 
+const main = document.querySelector("main"); // Bruker main for å legge til elementene i 
 
 function genererBok(bok) { // Funksjon for å generere en bok
-    div = document.createElement("details") // Bruker details for å gjøre det lett å vise infoen når noen trykker
+    div = document.createElement("details"); // Bruker details for å gjøre det lett å vise infoen når noen trykker
 
-    summary = document.createElement("summary"); // summary er eneste som viser før man trykker
+    let summary = document.createElement("summary"); // summary er eneste som viser før man trykker
     summary.textContent = bok.name;
     div.appendChild(summary);
-    
-    navn = document.createElement("h1"); // h1 for stor tittel etter man har trykket
+
+    let navn = document.createElement("h1"); // h1 for stor tittel etter man har trykket
     navn.textContent = bok.name;
     div.appendChild(navn);
-    
-    dato = document.createElement("p"); 
-    dato.textContent = `Boken ble utgitt ${bok.released}`; 
+
+    let dato = document.createElement("p");
+    dato.textContent = `Boken ble utgitt ${bok.released}`;
     div.appendChild(dato);
-    
-    antallSider = document.createElement("p");
+
+    let antallSider = document.createElement("p");
     antallSider.textContent = `Boken har ${bok.numberOfPages} sider`;
     div.appendChild(antallSider);
 
-    tekst = document.createElement("p");
+    let tekst = document.createElement("p");
     tekst.textContent = `Boken er skrevet av`;
-    div.appendChild(tekst);    
+    div.appendChild(tekst);
 
-    listeAvForfattere = document.createElement("ul");
-    div.appendChild(listeAvForfattere);    
+    let listeAvForfattere = document.createElement("ul");
+    div.appendChild(listeAvForfattere);
 
     bok.authors.forEach(forfatter => { // lage en liste med forfattere (selv om det bare er en), siden forfatterene blir gitt som en array
         forfatterElement = document.createElement("li");
         forfatterElement.textContent = forfatter;
         listeAvForfattere.appendChild(forfatterElement);
-    }); 
+    });
 
-    isbn = document.createElement("p"); // ISBN bare for å legge til mer info om boken
+    let isbn = document.createElement("p"); // ISBN bare for å legge til mer info om boken
     isbn.textContent = `ISBN: ${bok.isbn}`;
     div.appendChild(isbn);
 
-    main.appendChild(div) // Legg det til på siden
+    main.appendChild(div); // Legg det til på siden
 }
 
 
@@ -46,8 +46,8 @@ async function hentData() { // Henter infoen om bøkene gjennom fetch
 
     //console.log(data)
     data.forEach(bok => { // gå gjennom alle bøkene og bruk funksjonen generer bok for hvert element
-        genererBok(bok)
+        genererBok(bok);
     });
 }
 
-hentData() // Kjører alt
+hentData(); // Kjører alt
