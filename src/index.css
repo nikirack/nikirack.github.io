@@ -1,53 +1,38 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+  --fg: #444;
+  --fg-h: #111;
+  --fg-dim: #aaa;
+  --bg: #fff;
+  --border: #ccc;
+  --accent: #6c8ab8;
+
+  --mono: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Liberation Mono', ui-monospace, monospace;
+
+  font: 16px/1.6 var(--mono);
+  color-scheme: light;
+  color: var(--fg);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-html, html * {
-  cursor: none !important;
-}
-
-body {
-  height: 100vh;
-  background: #fff;
-  overflow: hidden;
-}
+* { box-sizing: border-box; }
+a { text-decoration: none; }
+body { margin: 0; overflow-x: hidden; }
+html { overflow-x: hidden; }
 
 #root {
-  height: 100vh;
   width: 100%;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  scroll-padding-bottom: 50px;
-  scrollbar-width: thin;
-  scrollbar-color: #000 transparent;
+  min-height: 100svh;
+  display: flex;
+  background: var(--bg);
 }
 
-#root::-webkit-scrollbar {
-  width: 4px;
-}
-
-#root::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-#root::-webkit-scrollbar-thumb {
-  background: #000;
-}
-
-@keyframes scroll-bounce {
-  0%, 100% {
-    transform: translateY(0);
-    opacity: 0.3;
-  }
-  50% {
-    transform: translateY(6px);
-    opacity: 1;
-  }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+::selection {
+  background: var(--fg);
+  color: var(--bg);
 }

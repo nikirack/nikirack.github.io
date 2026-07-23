@@ -1,0 +1,47 @@
+.panel {
+  flex: 1;
+  position: relative;
+  border: 1px solid var(--border);
+  padding: 16px 10px 10px;
+  transition: border-color 0.15s;
+}
+
+.panel.active-panel {
+  border-color: #000;
+}
+
+.panel.compact {
+  flex: 0 0 auto;
+}
+
+.panel-title {
+  position: absolute;
+  top: -7px;
+  left: 8px;
+  background: var(--bg);
+  padding: 0 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--fg-dim);
+}
+
+.panel-item {
+  padding: 2px 4px;
+  margin: 0 -4px;
+  color: var(--fg-dim);
+  white-space: pre;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+  border-radius: 0px;
+}
+
+.panel-item:hover {
+  color: var(--fg);
+  background: var(--border);
+}
+
+.panel-item.active {
+  color: var(--fg-h);
+  background: var(--border);
+}
