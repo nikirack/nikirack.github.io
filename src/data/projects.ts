@@ -18,6 +18,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'todo.tui',
+    name: 'todo.tui',
+    description: [
+      { type: 'text', content: 'a terminal-based todo.txt manager with a TUI.' },
+      { type: 'image', src: 'https://raw.githubusercontent.com/nikirack/todo.tui/refs/heads/main/assets/todo-example.png', alt: 'todo.tui screenshot' },
+      { type: 'text', content: 'built with opentui and bun'},
+      { type: 'text', content: "reads and writes standard todo.txt files, compatible with any other todo.txt tools that use the todo.txt format" },
+    ],
+    year: 2026,
+    stack: 'bun, typescript, opentui',
+    links: [
+      { label: 'github', url: 'https://github.com/nikirack/todo.tui' },
+      { label: 'todo.txt spec', url: 'https://github.com/todotxt/todo.txt' },
+    ],
+  },
+  {
     id: 'wutils',
     name: 'wutils',
     description: [
@@ -32,22 +48,6 @@ export const projects: Project[] = [
     stack: 'rust',
     links: [
       { label: 'github', url: 'https://github.com/nikirack/wutils' },
-    ],
-  },
-  {
-    id: 'todo.tui',
-    name: 'todo.tui',
-    description: [
-      { type: 'text', content: 'a terminal-based todo.txt manager with a TUI.' },
-      { type: 'image', src: 'https://raw.githubusercontent.com/nikirack/todo.tui/refs/heads/main/assets/todo-example.png', alt: 'todo.tui screenshot' },
-      { type: 'text', content: 'built with opentui and bun'},
-      { type: 'text', content: "reads and writes standard todo.txt files, compatible with any other todo.txt tools that use the todo.txt format" },
-    ],
-    year: 2026,
-    stack: 'bun, typescript, opentui',
-    links: [
-      { label: 'github', url: 'https://github.com/nikirack/todo.tui' },
-      { label: 'todo.txt spec', url: 'https://github.com/todotxt/todo.txt' },
     ],
   },
 ]
