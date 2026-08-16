@@ -1,7 +1,8 @@
 import './Panel.css'
 
-export default function Panel({ title, items, active, compact, activeIdx, onSelect }: {
+export default function Panel({ title, num ,items, active, compact, activeIdx, onSelect }: {
   title: string
+  num: number
   items: string[]
   active?: boolean
   compact?: boolean
@@ -10,7 +11,7 @@ export default function Panel({ title, items, active, compact, activeIdx, onSele
 }) {
   return (
     <div className={`panel${active ? ' active-panel' : ''}${compact ? ' compact' : ''}`}>
-      <div className="panel-title">{title}</div>
+      <div className="panel-title">{`[${num}] ${title}`}</div>
       {items.map((item, i) => (
         <div
           key={i}

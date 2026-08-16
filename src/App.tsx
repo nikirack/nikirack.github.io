@@ -67,6 +67,10 @@ function App() {
       h: () => { setSectionIdx(i => Math.max(i - 1, 0)); setItemIdx(0) },
     }
 
+    for (let i = 1; i < sections.length+1; i++) {
+      keyMap[String(i)] = () => setSectionIdx(i-1)
+    }
+
     keyMap[e.key]?.()
   }, [sectionIdx])
 
@@ -75,8 +79,8 @@ function App() {
     return () => document.removeEventListener('keydown', onKeyDown)
   }, [onKeyDown])
 
-  const selectItem = (si: number, ii: number) => {
-    setSectionIdx(si); setItemIdx(ii); setMenuOpen(false)
+  const selectItem = (sectionIndex: number, itemIndex: number) => {
+    setSectionIdx(sectionIndex); setItemIdx(itemIndex); setMenuOpen(false)
   }
 
   return (
@@ -86,15 +90,16 @@ function App() {
       </button>
       {menuOpen && <div className="overlay" onClick={() => setMenuOpen(false)} />}
       <div className={`col-left${menuOpen ? ' open' : ''}`}>
-        {sections.map((s, si) => (
+        {sections.map((section, sectionIndex) => (
           <Panel
-            key={si}
-            title={s.title}
-            items={s.items.map(i => i.label)}
-            active={sectionIdx === si}
-            activeIdx={sectionIdx === si ? itemIdx : -1}
-            compact={s.compact}
-            onSelect={(ii) => selectItem(si, ii)}
+            key={sectionIndex}
+            num={sectionIndex + 1}
+            title={section.title}
+            items={section.items.map(i => i.label)}
+            active={sectionIndex === sectionIdx}
+            activeIdx={sectionIndex === sectionIdx ? itemIdx : -1}
+            compact={section.compact}
+            onSelect={(itemIndex) => selectItem(sectionIndex, itemIndex)}
           />
         ))}
       </div>
